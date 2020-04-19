@@ -1,0 +1,101 @@
+<!--pages/2048/2048.wxml-->
+<view class='container'> 
+  <!-- loading -->
+  <loading hidden="{{hidden}}">
+    加载中...
+  </loading>
+
+  <view class='head'>
+    <view class='lside'>
+      <text class='title'>2048</text>
+      <text class='play' bindtap='gameStart'>{{start}}</text>
+    </view>
+    <view class='rside'>
+      <text>score <text class='score'>{{score}}</text></text>
+    </view>
+  </view>
+
+  <view class="game"> 
+    <!-- 矩阵 -->
+    <view bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
+      <view class='row' wx:for="{{num}}" wx:for-item="row" wx:key="row.key" >
+        <view class='cell' wx:for="{{row}}" wx:for-item="cell" wx:key="cell.key">
+          <view wx:if="{{cell=='平平有齐'}}">
+            <view class='cell-con cell-con-2'>
+              {{cell}}
+            </view>
+            <!--<view class='cell-con cell-con-{{cell}}'>
+             {{cell}}
+            </view>-->
+          </view>
+          
+          <view wx:elif="{{cell=='琢炎如玉'}}">
+            <view class='cell-con cell-con-4'>
+              {{cell}}
+            </view>
+          </view>
+          <view wx:elif="{{cell=='平生戈顾'}}">
+            <view class='cell-con cell-con-8'>
+              {{cell}}
+            </view>
+          </view>
+          <view wx:elif="{{cell=='光明磊罗'}}">
+            <view class='cell-con cell-con-16'>
+              {{cell}}
+            </view>
+          </view>
+          <view wx:elif="{{cell=='飞行棋盘'}}">
+            <view class='cell-con cell-con-32'>
+              {{cell}}
+            </view>
+          </view>
+          <view wx:elif="{{cell=='雄剧一方'}}">
+            <view class='cell-con cell-con-64'>
+              {{cell}}
+            </view>
+          </view>
+          <view wx:elif="{{cell=='攻玉以石'}}">
+            <view class='cell-con cell-con-128'>
+              {{cell}}
+            </view>
+          </view>
+          <view wx:elif="{{cell=='百里透红'}}">
+            <view class='cell-con cell-con-256'>
+              {{cell}}
+            </view>
+          </view>
+          <view wx:elif="{{cell=='云淡风秦'}}">
+            <view class='cell-con cell-con-512'>
+              {{cell}}
+            </view>
+          </view>
+          <view wx:elif="{{cell=='乐园'}}">
+            <view class='cell-con cell-con-1024'>
+              {{cell}}
+            </view>
+          </view>
+          <view wx:elif="{{cell=='喝醋'}}">
+            <view class='cell-con cell-con-2048'>
+              {{cell}}
+            </view>
+          </view>
+          <view wx:else>
+            <view class='cell-con'>
+              {{cell}}
+            </view>
+          </view>
+          <!--<view class='cell-con cell-con-{{cell}}'>
+             {{cell}}
+          </view>-->
+        </view>
+      </view> 
+    </view>
+
+    <!-- game over -->
+    <view class='game-over' hidden='{{!over}}'>
+      <text class='nowScore'>历史最高分：{{bestScore}}</text>
+      <text class='nowScore'>本次成绩：{{score}}</text>
+      <text class='pro'>{{endMsg}}</text> 
+    </view> 
+  </view>
+</view>

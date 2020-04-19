@@ -1,0 +1,9 @@
+var change = function (cell) {
+  switch(cell){
+    case 2:
+      return "平平有齐";
+      break;
+  }
+  return cell;
+}
+module.exports = { change:change };
